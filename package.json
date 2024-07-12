@@ -1,0 +1,21 @@
+{
+  "name": "modifier-xml-plugin",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "plugin",
+    "xml",
+    "modifier",
+    "testing"
+  ],
+  "author": "Gabriel Logan, Hiago Gil",
+  "license": "MIT",
+  "description": "A Cypress plugin for modifying XML fields within your tests.",
+  "dependencies": {
+    "xmldom": "^0.6.0"
+  }
+}
