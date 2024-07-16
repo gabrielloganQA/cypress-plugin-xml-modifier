@@ -37,3 +37,10 @@ Cypress.Commands.add('modifyMultipleXmlFields', (filePath, modifications, output
     cy.writeFile(outputFilePath, newXmlString);
   });
 });
+
+Cypress.Commands.add('convertXmlToBase64', (filePath, outputFilePath) => {
+  cy.readFile(filePath, 'utf-8').then((xmlString) => {
+    const base64String = btoa(xmlString);
+    cy.writeFile(outputFilePath, base64String);
+  });
+});

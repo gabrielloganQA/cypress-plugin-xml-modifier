@@ -1,39 +1,36 @@
-Aqui está uma versão aprimorada do README.md para o seu plugin:
-
-
 # Cypress XML Modifier Plugin
 
-[Cypress](https://www.cypress.io/) é uma ferramenta poderosa para testar aplicações web, e este plugin adiciona funcionalidades para modificar facilmente campos XML dentro dos seus testes Cypress. Com ele, você pode utilizar dois comandos personalizados: `modifyXmlField` e `modifyMultipleXmlFields`.
+[Cypress](https://www.cypress.io/) is a powerful tool for testing web applications, and this plugin adds functionality to easily modify XML fields within your Cypress tests. It provides two custom commands: `modifyXmlField` and `modifyMultipleXmlFields`.
 
-## Instalação
+## Installation
 
-Para instalar o plugin, execute o seguinte comando:
+To install the plugin, run the following command:
 
 ```sh
 npm install cypress-xml-modifier-plugin
 ```
 
-## Uso
+## Usage
 
-Primeiro, importe e registre o plugin no seu arquivo `cypress/support/e2e.js`:
+First, import and register the plugin in your `cypress/support/e2e.js` file:
 
 ```javascript
 import 'cypress-xml-modifier-plugin';
 ```
 
-### Comandos Disponíveis
+### Available Commands
 
 #### `modifyXmlField`
 
-Modifica um único campo XML.
+Modifies a single XML field.
 
-**Parâmetros:**
-- `filePath` (string): Caminho para o arquivo XML.
-- `tagName` (string): Nome da tag que deve ser modificada.
-- `newValue` (string): Novo valor para a tag.
-- `outputFilePath` (string): Caminho para salvar o arquivo XML modificado.
+**Parameters:**
+- `filePath` (string): Path to the XML file.
+- `tagName` (string): Name of the tag to be modified.
+- `newValue` (string): New value for the tag.
+- `outputFilePath` (string): Path to save the modified XML file.
 
-**Exemplo de Uso:**
+**Usage Example:**
 
 ```javascript
 cy.modifyXmlField('path/to/input.xml', 'TagName', 'NewValue', 'path/to/output.xml');
@@ -41,14 +38,14 @@ cy.modifyXmlField('path/to/input.xml', 'TagName', 'NewValue', 'path/to/output.xm
 
 #### `modifyMultipleXmlFields`
 
-Modifica múltiplos campos XML.
+Modifies multiple XML fields.
 
-**Parâmetros:**
-- `filePath` (string): Caminho para o arquivo XML.
-- `modifications` (array de objetos): Lista de modificações a serem feitas. Cada objeto deve conter `tagName` e `newValue`.
-- `outputFilePath` (string): Caminho para salvar o arquivo XML modificado.
+**Parameters:**
+- `filePath` (string): Path to the XML file.
+- `modifications` (array of objects): List of modifications to be made. Each object should contain `tagName` and `newValue`.
+- `outputFilePath` (string): Path to save the modified XML file.
 
-**Exemplo de Uso:**
+**Usage Example:**
 
 ```javascript
 const modifications = [
@@ -59,15 +56,32 @@ const modifications = [
 cy.modifyMultipleXmlFields('path/to/input.xml', modifications, 'path/to/output.xml');
 ```
 
-### Notas
+convertXmlToBase64
+Converts an XML file to a Base64 encoded string.
 
-- Se a tag especificada não for encontrada no XML, o teste falhará imediatamente com uma mensagem de erro.
-- Certifique-se de que os caminhos para os arquivos XML estejam corretos e que o Cypress tenha permissão para ler e escrever nesses caminhos.
+Parameters:
 
-## Contribuições
+filePath (string): Path to the XML file.
+outputFilePath (string): Path to save the Base64 encoded string.
+Usage Example:
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar pull requests. Veja as [diretrizes de contribuição](CONTRIBUTING.md) para mais detalhes.
+```javascript
+cy.convertXmlToBase64('path/to/input.xml', 'path/to/output.txt');
+```
 
-## Licença
+### Notes
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- If the specified tag is not found in the XML, the test will fail immediately with an error message.
+- Ensure that the paths to XML files are correct and that Cypress has permission to read from and write to these paths.
+
+## Credits
+
+This plugin was conceptualized by Hiago due to a specific application requirement involving XML. I Gabriel Logan implemented the code.
+
+## Contributions
+
+Contributions are welcome! Feel free to open issues and send pull requests. See the [contribution guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
